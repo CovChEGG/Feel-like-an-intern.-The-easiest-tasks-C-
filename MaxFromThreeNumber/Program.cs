@@ -10,14 +10,21 @@ int[] EnterArray()
     }
     return ArrayOfNumbers;
 }
-/*int MaxItem(int number1, int number2, int number3)
+int MaxItem(int[] Array)
 {
-    int count=0;
-    int Max=number1;
-    while(count<3)
+    int i=0;
+    int Max=Array[i];
+    while(i<3)
     {
-        if(Max>)
+        if(Max<Array[i])
+        {
+            Max=Array[i];
+        }
+        i++;
     }
-}*/
+    return Max;
+}
 int[] Array = EnterArray();
 Console.WriteLine("Вы ввели следующие числа: {0} {1} {2}", Array[0], Array[1], Array[2]);
+int Result = MaxItem(Array);
+Console.WriteLine("Максимальное число из введенных вами: {0}", Result);
