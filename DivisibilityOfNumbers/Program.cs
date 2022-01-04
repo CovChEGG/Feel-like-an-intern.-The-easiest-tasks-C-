@@ -43,7 +43,38 @@ void ShowArray(int[] Array)
         Console.Write(Array[i]);
         Console.Write(" ");
     }
+    Console.WriteLine(" ");
+}
+int FoundNewI(int[] Array)
+{
+    int key = 0;
+    for(int i=1; i<Array.Length; i++)
+    {
+        if(Array[i]%Array[0]==0)
+        {
+            key++;
+        }  
+    }
+    return key;
+}
+int[] CreateGroup(int[] Array, int NewKey)
+{
+    int[] NewArray = new int[NewKey];
+    int j = 0;
+    for(int i = 1; i<=NewArray.Length;i++)
+    {
+        if(Array[i]%Array[0]==0)
+        {
+            NewArray[j]=Array[i];
+            j++;
+        }
+    }
+    return NewArray;
 }
 int UserNumberN = EnterNumber();
 int[] WholeArray = FillArrayTillN(UserNumberN);
+int NewKey = FoundNewI(WholeArray);
+int[] NewArray = CreateGroup(WholeArray, NewKey);
 ShowArray(WholeArray);
+Console.WriteLine(NewKey);
+ShowArray(NewArray);
